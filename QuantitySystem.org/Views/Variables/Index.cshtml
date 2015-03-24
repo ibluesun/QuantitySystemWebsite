@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "Variables";
+}
+
+
+<div class="jumbotron">
+    <h3>Current Variables [@QsWeb.GetVariablesKeys().Count()]</h3>
+</div>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <td>Variable Name</td>
+                    <td>Value</td>
+                </tr>
+            </thead>
+            @foreach (var v in QsWeb.GetVariablesKeys())
+            {
+                var val = QsWeb.GetVariable(v);
+                <tr>
+                    <td>@v</td>
+                    <td>
+                        @val.ToString()
+
+                        @if (val is Qs.Runtime.QsNamespace)
+                        {
+                            <table class="table-condensed">
+                                @{
+                            var ns = (Qs.Runtime.QsNamespace)val;
+
+                            foreach (string nsvar in ns.GetVariablesKeys())
+                            {
+                                <tr>
+                                    <td>@nsvar</td>
+                                    <td>@ns.GetValue(nsvar).ToString()</td>
+                                </tr>
+                            }
+                                }
+                            </table>
+                        }
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>

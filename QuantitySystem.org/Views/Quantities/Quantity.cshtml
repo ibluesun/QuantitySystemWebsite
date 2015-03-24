@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "Quantity Units";
+    string quantity = ViewBag.Quantity;
+
+    var quantity_units = QsWeb.AvailableUnits(quantity);
+
+    var qType = QuantitySystem.QuantityDimension.QuantityTypeFrom(quantity);
+    var qDim = QuantitySystem.QuantityDimension.DimensionFrom(qType);
+    var SiUnit = QuantitySystem.Units.Unit.DiscoverUnit(qDim);
+}
+
+<div class="jumbotron">
+    <h2>@quantity</h2>
+    <h4>[@qDim]</h4>
+    <h4>Available Units [@quantity_units.Count()]</h4>
+    <span class="label label-info">Base Units @SiUnit.Symbol</span>
+</div>
+<div class="row">
+    <div class="col-md-12">
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <td>#</td>
+                    <td>Name</td>
+                    <td>Symbol</td>
+                    <td>System</td>
+                    <td>Quantity Type</td>
+                </tr>
+            </thead>
+
+            @for (int ix = 0; ix < quantity_units.Length; ix++)
+            {
+                var v = quantity_units[ix];
+                <tr>
+                    <td>@ix</td>
+                    <td>@v.Name</td>
+                    <td>@v.Symbol</td>
+                    <td>@v.System</td>
+                    <td>@v.QuantityType</td>
+                </tr>
+
+            }
+        </table>
+    </div>
+</div>

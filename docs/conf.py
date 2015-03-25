@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # Quantity System Framework documentation build configuration file, created by
-# sphinx-quickstart on Wed Mar 25 00:26:28 2015.
+# sphinx-quickstart on Wed Mar 25 00:47:01 2015.
 #
 # This file is execfile()d with the current directory set to its
 # containing dir.
@@ -29,9 +29,7 @@ import shlex
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = [
-    'sphinx.ext.mathjax',
-]
+extensions = []
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -110,7 +108,12 @@ todo_include_todos = False
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-html_theme = 'alabaster'
+
+on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
+if on_rtd:
+    html_theme = 'default'
+else:
+    html_theme = 'nature'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the

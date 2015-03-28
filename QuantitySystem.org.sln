@@ -8,9 +8,21 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{6E66C40B-3099-40B8-A635-F165100C43D2}"
 	ProjectSection(SolutionItems) = preProject
 		docs\conf.py = docs\conf.py
+		docs\Framework.rst = docs\Framework.rst
+		docs\Functions.rst = docs\Functions.rst
 		docs\index.rst = docs\index.rst
+		docs\Introduction.rst = docs\Introduction.rst
 		docs\make.bat = docs\make.bat
 		docs\Makefile = docs\Makefile
+		docs\MathematicalTypes-Relations.PNG = docs\MathematicalTypes-Relations.PNG
+		docs\QsValue.png = docs\QsValue.png
+		docs\Residuals.txt = docs\Residuals.txt
+		docs\Runtime.rst = docs\Runtime.rst
+		docs\RuntimeTypes.rst = docs\RuntimeTypes.rst
+		docs\Scalar-Types.png = docs\Scalar-Types.png
+		docs\ScalarTypes.rst = docs\ScalarTypes.rst
+		docs\Sequence.rst = docs\Sequence.rst
+		docs\WorkTorqueProblem.rst = docs\WorkTorqueProblem.rst
 	EndProjectSection
 EndProject
 Global

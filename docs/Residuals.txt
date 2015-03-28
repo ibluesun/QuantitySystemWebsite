@@ -1,0 +1,13 @@
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
+
+.. rubric:: Footnotes
+
+.. [#f1] Text of the first footnote.
+.. [#f2] Text of the second footnote.
+

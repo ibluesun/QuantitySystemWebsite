@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Qs.Runtime;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -43,6 +44,13 @@ namespace QuantitySystem.org.Controllers
         {
             try
             {
+                if (value.Equals("new", StringComparison.OrdinalIgnoreCase))
+                {
+                    QsEvaluator.CurrentEvaluator.Scope.Clear();
+
+                    return Ok("All Variables Cleared.");
+                }
+                
                 var result = Qs.Runtime.QsEvaluator.CurrentEvaluator.Evaluate(value);
 
                 if (result is Units.Unit)

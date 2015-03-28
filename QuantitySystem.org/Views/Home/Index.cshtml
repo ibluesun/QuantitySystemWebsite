@@ -53,9 +53,6 @@ Project Blog:   http://QuantitySystem.WordPress.com\n\
                     if (command == 'copyright') {
                         term.echo(copyright);
                     }
-                    else if (command == 'new') {
-
-                    }
                     else {
                         $.post("/api/Qs/", { '': command })
                         .done(function (data) {

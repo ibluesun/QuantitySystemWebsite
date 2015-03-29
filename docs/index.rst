@@ -20,7 +20,6 @@ Contents:
    Sequence
    Tuples
 
-
 Indices and tables
 ==================
 

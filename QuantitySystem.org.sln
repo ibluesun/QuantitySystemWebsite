@@ -22,7 +22,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{6E66C40B-3
 		docs\Scalar-Types.png = docs\Scalar-Types.png
 		docs\ScalarTypes.rst = docs\ScalarTypes.rst
 		docs\Sequence.rst = docs\Sequence.rst
-		docs\WorkTorqueProblem.rst = docs\WorkTorqueProblem.rst
+		docs\Tuples.rst = docs\Tuples.rst
 	EndProjectSection
 EndProject
 Global

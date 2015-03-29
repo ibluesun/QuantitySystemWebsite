@@ -1,5 +1,5 @@
-Runtime Scalars Types
-=====================
+Scalars Types
+=============
 
 Scalar quantitiy can be instantiated by simply typing `variable = value<unit>`  if you omit the unit part then the quantity is dimensionless quantity.
 

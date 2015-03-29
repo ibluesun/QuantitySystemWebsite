@@ -1,5 +1,5 @@
-Runtime Sequences
-=================
+Sequences
+=========
 
 This unique feature is only included in the quantity system runtime which permits the user to form a mathematical sequences.
 

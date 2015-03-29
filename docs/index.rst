@@ -18,6 +18,7 @@ Contents:
    ScalarTypes
    Functions
    Sequence
+   Tuples
 
 
 Indices and tables

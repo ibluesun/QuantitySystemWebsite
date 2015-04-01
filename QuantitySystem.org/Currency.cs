@@ -10,11 +10,23 @@ namespace QsRoot
     {
 
         static ParticleLexer.Token CurrenciesJson;
-        static Dictionary<string, double> Currs;
+        static Dictionary<string, double> CurrentCurrencies;
 
         static Currency()
         {
             ReadCurrenciesJson();
+        }
+
+
+        static DirectoryInfo App_DataFolder
+        {
+            get
+            {
+                string data_folder = HttpContext.Current.Server.MapPath("~/App_Data");
+                DirectoryInfo di = new DirectoryInfo(data_folder);
+                if (!di.Exists) di.Create();
+                return di;
+            }
         }
 
         /// <summary>
@@ -24,9 +36,7 @@ namespace QsRoot
         {
             get
             {
-                string folder = HttpContext.Current.Server.MapPath("~");
-
-                string file = string.Format(folder + "XChangeRates-{0}-{1}-{2}.json", DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day);
+                string file = string.Format(App_DataFolder.FullName + "\\XChangeRates-{0}-{1}-{2}.json", DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day);
                 return file;
             }
         }
@@ -73,21 +83,23 @@ namespace QsRoot
                 );
 
 
-            Currs = new Dictionary<string, double>();
+            CurrentCurrencies = new Dictionary<string, double>();
 
             // find rates key
             foreach (var tok in CurrenciesJson)
             {
                 if (tok.TokenClassType == typeof(MergedToken))
                 {
-                    Currs.Add(tok[0].TrimTokens(1, 1).TokenValue, double.Parse(tok[2].TokenValue));
+                    CurrentCurrencies.Add(tok[0].TrimTokens(1, 1).TokenValue, double.Parse(tok[2].TokenValue));
                 }
             }
         }
 
         public static double CurrencyConverter(string currency)
         {
-            return 1.0 / Currs[currency];
+            if (CurrentCurrencies == null) ReadCurrenciesJson();
+
+            return 1.0 / CurrentCurrencies[currency];
         }
 
         /// <summary>

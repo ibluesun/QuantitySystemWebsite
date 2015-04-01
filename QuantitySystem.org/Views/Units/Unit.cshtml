@@ -1,0 +1,106 @@
+﻿@model QuantitySystem.Units.Unit
+
+@{
+    var qName = Model.QuantityType.Name.Substring(0, Model.QuantityType.Name.Length - 2);
+    
+    ViewBag.Title = Model.GetType().Name + " Unit";
+    ViewBag.MetaKeywords = Model.GetType().Name;
+    ViewBag.MetaDescription = Model.GetType().Name + " Unit Beside Other " + qName + " Measurement Units Conversion Factors";
+
+
+
+    var SiUnit = QuantitySystem.Units.Unit.DiscoverUnit(Model.UnitDimension);
+
+    var quantity_units = QsWeb.AvailableUnits(qName);
+    
+    
+    
+    List<Tuple<string,double,string >> All_Units = new List<Tuple<string,double,string >>();
+    
+    for (int ix = 0; ix < quantity_units.Length; ix++)
+    {
+        var u = quantity_units[ix];
+
+        Tuple<string, double, string> u_i = new Tuple<string, double, string>(
+            u.Name,
+            @Model.PathToUnit((QuantitySystem.Units.Unit)Activator.CreateInstance(u.UnitType)).ConversionFactor,
+            u.Symbol
+
+            );
+
+        All_Units.Add(u_i);
+
+        
+
+    }
+}
+
+
+<div class="jumbotron">
+
+    <h2>@Model.GetType().Name </h2>
+
+</div>
+
+
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-4 column">
+            <table class="table">
+                <tr>
+                    <td>Unit</td>
+                    <td><span class="label label-info">@Model.Symbol</span></td>
+                </tr>
+                <tr>
+                    <td>To Base Units</td>
+                    <td><span> = &nbsp;@Model.PathToUnit(SiUnit).ConversionFactor</span><span>@SiUnit.Symbol</span></td>
+                </tr>
+                <tr>
+                    <td>Quantity</td>
+                    <td> 
+                        
+                            <a href="~/Quantities/@qName">
+                                @qName
+                            </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Dimension</td>
+                    <td><span class="label label-info">@Model.UnitDimension</span></td>
+                </tr>
+                <tr>
+                    <td>Unit System</td>
+                    <td><span class="label label-info">@Model.UnitSystem</span></td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-md-8 column">
+            @*list all units here starting with default units*@
+            <table class="table table-condensed" >
+                <tr>
+                    <th>To Alternative Units</th>
+                    <th>Conversion Factor</th>
+                </tr>
+                
+
+                @foreach(var u in All_Units.OrderByDescending(x=>x.Item2))
+                {
+                    <tr>
+                        <td><a href="~/Units/@u.Item1">@u.Item1</a></td>
+
+                        <td>
+                        <span> = &nbsp; @u.Item2</span>
+                        <span>@u.Item3</span>
+                        </td>
+                        
+                    </tr>
+                    
+                }
+
+            </table>
+        </div>
+    </div>
+</div>
+
+
+

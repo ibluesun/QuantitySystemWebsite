@@ -190,6 +190,10 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\HelpPageApiModel.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <Content Include="fonts\FreeMono.ttf" />
+    <Content Include="fonts\FreeMonoBold.ttf" />
+    <Content Include="fonts\FreeMonoBoldOblique.ttf" />
+    <Content Include="fonts\FreeMonoOblique.ttf" />
     <None Include="Properties\PublishProfiles\DailyRazor.pubxml" />
     <None Include="Properties\PublishProfiles\QuantitySystem - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\QuantitySystem - Web Deploy.pubxml" />
@@ -231,6 +235,7 @@
     <Content Include="Views\Units\Index.cshtml" />
     <Content Include="Views\Variables\Index.cshtml" />
     <Content Include="Views\Specs\Index.cshtml" />
+    <Content Include="Views\Units\Unit.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

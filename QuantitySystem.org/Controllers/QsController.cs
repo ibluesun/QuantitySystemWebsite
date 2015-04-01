@@ -15,7 +15,6 @@ namespace QuantitySystem.org.Controllers
         static QsController()
         {
 
-            QuantitySystem.DynamicQuantitySystem.AddDynamicUnitConverterFunction("Currency", QsRoot.Currency.CurrencyConverter);
 
 
         }

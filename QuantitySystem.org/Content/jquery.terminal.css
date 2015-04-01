@@ -86,6 +86,10 @@
 .cmd .prompt {
     float: left;
 }
+@font-face {
+    font-family: FreeMono;
+    src: url('../fonts/FreeMono.ttf');
+}
 .terminal, .cmd {
     font-family: FreeMono, monospace;
     color: #aaa;

@@ -13,5 +13,17 @@ namespace QuantitySystem.org.Controllers
         {
             return View();
         }
+
+
+
+        [Route("Units/{unit}")]
+        public ActionResult Unit(string unit)
+        {
+            
+            var u = Units.Unit.UnitTypes.First(x => x.Name == unit);
+            Units.Unit cu = (Units.Unit)Activator.CreateInstance(u);
+            return View(cu);
+        }
+
     }
 }

@@ -22,7 +22,11 @@ namespace QuantitySystem.org
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
 
+
             Qs.Runtime.QsEvaluator.CurrentEvaluator.Scope.ReplacePrimaryScopeStorage(new QsWebStorageProvider());
+
+            // point to the currency converter
+            QuantitySystem.DynamicQuantitySystem.AddDynamicUnitConverterFunction("Currency", QsRoot.Currency.CurrencyConverter);
 
         }
     }

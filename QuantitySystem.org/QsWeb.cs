@@ -71,6 +71,7 @@ namespace QuantitySystem.org
             public string Symbol;
             public string System;
             public string QuantityType;
+            public Type UnitType;
         }
 
         public static UnitInfo[] AvailableUnits(string quantity="")
@@ -96,7 +97,8 @@ namespace QuantitySystem.org
                         Name = uname,
                         Symbol = symbol,
                         System = system,
-                        QuantityType = qtype
+                        QuantityType = qtype,
+                        UnitType = utype
                     };
 
                     if (string.IsNullOrEmpty(quantity))

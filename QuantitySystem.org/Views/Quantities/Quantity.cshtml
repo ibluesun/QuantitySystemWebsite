@@ -1,6 +1,8 @@
 ﻿@{
-    ViewBag.Title = "Quantity Units";
+    ViewBag.Title = ViewBag.Quantity+ " Units";
     string quantity = ViewBag.Quantity;
+    ViewBag.MetaKeywords = ViewBag.Quantity;
+    ViewBag.MetaDescription = ViewBag.Quantity + " Physical Quantity Units";
 
     var quantity_units = QsWeb.AvailableUnits(quantity);
 
@@ -34,7 +36,7 @@
                 var v = quantity_units[ix];
                 <tr>
                     <td>@ix</td>
-                    <td>@v.Name</td>
+                    <td><a href="~/Units/@v.Name">@v.Name</a></td>
                     <td>@v.Symbol</td>
                     <td>@v.System</td>
                     <td>@v.QuantityType</td>

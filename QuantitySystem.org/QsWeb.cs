@@ -1,6 +1,8 @@
-﻿using QuantitySystem.Units;
+﻿using Qs.Runtime;
+using QuantitySystem.Units;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 
@@ -34,6 +36,7 @@ namespace QuantitySystem.org
             Qs.Runtime.QsEvaluator.CurrentEvaluator.Scope.TryGetValue(varName, out q);
             return q;
         }
+
 
 
 
@@ -120,4 +123,6 @@ namespace QuantitySystem.org
             return units.OrderBy(x => x.QuantityType).ToArray();
         }
     }
+
+
 }

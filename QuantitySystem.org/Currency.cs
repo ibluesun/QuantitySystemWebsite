@@ -6,6 +6,23 @@ using System.Web;
 
 namespace QsRoot
 {
+
+    static class QsWebData
+    {
+        public static DirectoryInfo Folder
+        {
+            get
+            {
+                string data_folder = HttpContext.Current.Server.MapPath("~/QsWebData");
+                DirectoryInfo di = new DirectoryInfo(data_folder);
+                if (!di.Exists) di.Create();
+                return di;
+            }
+
+        }
+
+    }
+
     public static class Currency
     {
 
@@ -18,16 +35,6 @@ namespace QsRoot
         }
 
 
-        static DirectoryInfo App_DataFolder
-        {
-            get
-            {
-                string data_folder = HttpContext.Current.Server.MapPath("~/App_Data");
-                DirectoryInfo di = new DirectoryInfo(data_folder);
-                if (!di.Exists) di.Create();
-                return di;
-            }
-        }
 
         /// <summary>
         /// Getting the exchange rate file each day so we don't hit the service too much
@@ -36,7 +43,9 @@ namespace QsRoot
         {
             get
             {
-                string file = string.Format(App_DataFolder.FullName + "\\XChangeRates-{0}-{1}-{2}.json", DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day);
+
+                //string file = string.Format(QsWebData.Folder.FullName + "\\XChangeRates-{0}-{1}-{2}.json", DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day);
+                string file = HttpContext.Current.Server.MapPath($"~/QsWebData/XChangeRates-{DateTime.Today.Year}-{DateTime.Today.Month}-{DateTime.Today.Day}.json"); 
                 return file;
             }
         }

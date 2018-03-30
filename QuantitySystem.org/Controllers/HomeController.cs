@@ -25,6 +25,11 @@ namespace QuantitySystem.org.Controllers
             return View();
         }
 
+        public ActionResult PrivacyStatement()
+        {
+            return View();
+        }
+
 
     }
 }

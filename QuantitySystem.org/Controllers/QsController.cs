@@ -1,6 +1,9 @@
 ﻿using Qs.Runtime;
+using Qs.Types;
+using QuantitySystem.org.Models;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -80,7 +83,46 @@ namespace QuantitySystem.org.Controllers
 
                 }
 
-                return Ok("    " + result.ToString());
+                if (result is QsObject)
+                {
+                    var bitmap = ((QsObject)result).ThisObject as Bitmap;
+
+                    if (bitmap != null)
+                    {
+                        System.IO.MemoryStream stream = new System.IO.MemoryStream();
+
+                        bitmap.Save(stream, System.Drawing.Imaging.ImageFormat.Bmp);
+                        byte[] imageBytes = stream.ToArray();
+
+                        // Convert byte[] to Base64 String
+                        string base64String = Convert.ToBase64String(imageBytes);
+
+
+                        //msg = "null";
+
+
+
+
+                        dynamic botres = new System.Dynamic.ExpandoObject();
+                        botres.recipient = new System.Dynamic.ExpandoObject();
+                        botres.message = new System.Dynamic.ExpandoObject();
+                        botres.message.attachment = new System.Dynamic.ExpandoObject();
+                        botres.message.attachment.payload = new System.Dynamic.ExpandoObject();
+                        botres.recipient.id = "hohoho";
+
+                        botres.message.text =  "Function Plot";
+                        botres.message.attachment.type = "image";
+                        botres.message.attachment.payload.url = "https://lh5.googleusercontent.com/-IvKtT_Wrhkc/TYyu07xdqZI/AAAAAAAAAeU/m2IFsY_ELh8/s1600/Function.png";
+
+
+                        var json = Newtonsoft.Json.JsonConvert.SerializeObject(botres, Newtonsoft.Json.Formatting.None);
+
+                        return Ok("   " + json);
+
+                    }
+                }
+
+                        return Ok("    " + result.ToString());
             }
             catch (Exception e)
             {

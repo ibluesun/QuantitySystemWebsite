@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2015
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuantitySystem.org", "QuantitySystem.org\QuantitySystem.org.csproj", "{562C99D4-B05D-4514-A8F9-B725A3EFFC77}"
 EndProject
@@ -25,6 +25,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{6E66C40B-3
 		docs\Tuples.rst = docs\Tuples.rst
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "References", "References", "{B0F30C37-958A-47BC-B22F-99E00DC76715}"
+	ProjectSection(SolutionItems) = preProject
+		References\Microsoft.Dynamic.dll = References\Microsoft.Dynamic.dll
+		References\Microsoft.Scripting.dll = References\Microsoft.Scripting.dll
+		References\ParticleLexer.dll = References\ParticleLexer.dll
+		References\PassiveFlow.dll = References\PassiveFlow.dll
+		References\Qs.dll = References\Qs.dll
+		References\Qs.Scripting.dll = References\Qs.Scripting.dll
+		References\QuantitySystem.dll = References\QuantitySystem.dll
+		References\SymbolicAlgebra.dll = References\SymbolicAlgebra.dll
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,5 +50,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0C177B45-2CE7-41B2-9F53-EDF170F2881B}
 	EndGlobalSection
 EndGlobal

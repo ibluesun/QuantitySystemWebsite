@@ -154,16 +154,16 @@ namespace QuantitySystem.org.Controllers
 
             var sb = new System.Text.StringBuilder();
             
-            sb.AppendLine("Quantity System Framework  ver 1.3.5");
-            sb.AppendLine("Quantity System DLR        ver 1.3");
+            sb.AppendLine("Quantity System Framework  ver 1.4");
+            sb.AppendLine("Quantity System DLR        ver 1.4");
             sb.AppendLine("Symbolic Algebra Library   ver 0.8.99");
-            
+
 
 
             //var qsc_cwr = (AssemblyCopyrightAttribute)Assembly.GetEntryAssembly().GetCustomAttributes(typeof(AssemblyCopyrightAttribute), false)[0];
-            sb.AppendLine("Copyright (c) 2009 - 2017 at Lost Particles Network by Ahmed Sadek");
+            sb.AppendLine("Copyright (c) 2008 - " + DateTime.Now.Year.ToString() + " at Lost Particles Network by Ahmed Sadek");
             sb.AppendLine();
-            sb.AppendLine("Project Source: http://QuantitySystem.CodePlex.com");
+            sb.AppendLine("Project Source: https://github.com/ibluesun/QuantitySystem");
             sb.AppendLine("Project Blog:   http://QuantitySystem.WordPress.com");
             sb.AppendLine();
             sb.AppendLine("-------------------------------------------------------------------");
